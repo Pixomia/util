@@ -14,10 +14,34 @@
 
 	<distributionManagement>
 
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>github</id>
+			<name>Remote Maven Repo for util</name>
+			<url>https://maven.pkg.github.com/pixomia/util</url>
+		</snapshotRepository>
+		<repository>
+			<id>github</id>
+			<name>Remote Maven Repo for util</name>
+			<url>https://maven.pkg.github.com/pixomia/util</url>
+		</repository>
 	</distributionManagement>
 	<repositories>
-
+		<repository>
+			<id>github_pixomia_util</id>
+			<name>Remote Maven Repo for util</name>
+			<url>https://maven.pkg.github.com/pixomia/util</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
 	</repositories>
+	<properties>
+
 	<properties>
 		<sonar.organization>pixomia-sonarcloud</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
