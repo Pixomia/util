@@ -16,19 +16,19 @@
 		<snapshotRepository>
 			<id>github</id>
 			<name>Remote Maven Repo for util</name>
-			<url>https://maven.pkg.github.com/pixomia/util</url>
+			<url>https://maven.pkg.github.com/Pixomia/util</url>
 		</snapshotRepository>
 		<repository>
 			<id>github</id>
 			<name>Remote Maven Repo for util</name>
-			<url>https://maven.pkg.github.com/pixomia/util</url>
+			<url>https://maven.pkg.github.com/Pixomia/util</url>
 		</repository>
 	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>github_pixomia_util</id>
 			<name>Remote Maven Repo for util</name>
-			<url>https://maven.pkg.github.com/pixomia/util</url>
+			<url>https://maven.pkg.github.com/Pixomia/util</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
