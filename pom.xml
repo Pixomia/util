@@ -13,9 +13,6 @@
 	<packaging>jar</packaging>
 
 	<distributionManagement>
-
-
-	<distributionManagement>
 		<snapshotRepository>
 			<id>github</id>
 			<name>Remote Maven Repo for util</name>
