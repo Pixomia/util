@@ -110,7 +110,7 @@ class PixomiaStringUtilsTest {
 
     @Test
     void testFindLetterFrequence() {
-	final HashMap<String, Integer> letterFrequence = PixomiaStringUtils.findLetterFrequence("aaaaaabbbcccc");
+	final Map<String, Integer> letterFrequence = PixomiaStringUtils.findLetterFrequence("aaaaaabbbcccc");
 	Assertions.assertEquals(6, letterFrequence.get("a"));
 	Assertions.assertEquals(3, letterFrequence.get("b"));
 	Assertions.assertEquals(4, letterFrequence.get("c"));

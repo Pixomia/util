@@ -2,6 +2,7 @@ package com.github.pixomia.util;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Stream;
 
 import lombok.experimental.UtilityClass;
@@ -23,11 +24,12 @@ public class PixomiaStringUtils {
 	if (toFillUp.length() >= len) {
 	    return toFillUp;
 	}
-	String helper = toFillUp;
-	while (helper.length() < len) {
-	    helper = "0" + helper;
+	final StringBuilder sb = new StringBuilder();
+	sb.append(toFillUp);
+	while (sb.toString().length() < len) {
+	    sb.insert(0, "0");
 	}
-	return helper;
+	return sb.toString();
     }
 
     public static String buildFestLenghtStringLeftSpace(final String toFillUp, final int len) {
@@ -37,11 +39,12 @@ public class PixomiaStringUtils {
 	if (toFillUp.length() >= len) {
 	    return toFillUp;
 	}
-	String helper = toFillUp;
-	while (helper.length() < len) {
-	    helper = " " + helper;
+	final StringBuilder sb = new StringBuilder();
+	sb.append(toFillUp);
+	while (sb.toString().length() < len) {
+	    sb.insert(0, " ");
 	}
-	return helper;
+	return sb.toString();
     }
 
     public static String buildFestLenghtStringRightSpace(final String toFillUp, final int len) {
@@ -51,11 +54,12 @@ public class PixomiaStringUtils {
 	if (toFillUp.length() >= len) {
 	    return toFillUp;
 	}
-	String helper = toFillUp;
-	while (helper.length() < len) {
-	    helper = helper + " ";
+	final StringBuilder sb = new StringBuilder();
+	sb.append(toFillUp);
+	while (sb.toString().length() < len) {
+	    sb.append(" ");
 	}
-	return helper;
+	return sb.toString();
     }
 
     public static boolean checkIfIsLong(final String isLong) {
@@ -82,16 +86,18 @@ public class PixomiaStringUtils {
     public static Map<String, Integer> combineTwoMapsWithFrequencies(final Map<String, Integer> first,
 	    final Map<String, Integer> second) {
 	final Map<String, Integer> result = new HashMap<>();
-	for (final String currFirstKey : first.keySet()) {
-	    final Integer currFirstValue = first.get(currFirstKey);
+	for (final Entry<String, Integer> currFirstEntrySet : first.entrySet()) {
+	    final String currFirstKey = currFirstEntrySet.getKey();
+	    final Integer currFirstValue = currFirstEntrySet.getValue();
 	    if (result.get(currFirstKey) == null) {
 		result.put(currFirstKey, currFirstValue);
 	    } else {
 		result.put(currFirstKey, result.get(currFirstKey) + currFirstValue);
 	    }
 	}
-	for (final String currSecoundKey : second.keySet()) {
-	    final Integer currSecoundValue = second.get(currSecoundKey);
+	for (final Entry<String, Integer> currSecondEntrySet : second.entrySet()) {
+	    final String currSecoundKey = currSecondEntrySet.getKey();
+	    final Integer currSecoundValue = currSecondEntrySet.getValue();
 	    if (result.get(currSecoundKey) == null) {
 		result.put(currSecoundKey, currSecoundValue);
 	    } else {
@@ -163,9 +169,9 @@ public class PixomiaStringUtils {
 	return toCut.substring(0, max);
     }
 
-    public static HashMap<String, Integer> findLetterFrequence(final String text) {
+    public static Map<String, Integer> findLetterFrequence(final String text) {
 	final int one = 1;
-	final HashMap<String, Integer> result = new HashMap<>();
+	final Map<String, Integer> result = new HashMap<>();
 	final Stream<String> stringStream = text.codePoints().mapToObj(c -> String.valueOf((char) c));
 	stringStream.forEachOrdered(curr -> {
 	    if (result.containsKey(curr)) {
