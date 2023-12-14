@@ -14,4 +14,8 @@ public abstract class AbstractPixomiaUtilException extends Exception {
     protected AbstractPixomiaUtilException(final String message, final Throwable cause) {
 	super(message, cause, true, false);
     }
+
+    protected AbstractPixomiaUtilException(final Throwable cause) {
+	super("", cause, true, false);
+    }
 }

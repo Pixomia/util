@@ -14,4 +14,8 @@ public class AbstractTecException extends AbstractPixomiaUtilException {
 	super(message, cause);
     }
 
+    protected AbstractTecException(final Throwable e) {
+	super(e);
+    }
+
 }
