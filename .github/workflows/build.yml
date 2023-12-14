@@ -35,6 +35,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Pixomia_util
+      - name: Upload artifacts for subsequent review
+        uses: actions/upload-artifact@master
+        with:
+         name: generated-reports
+         path: |
+          target/site
+          target/dependency-check-report.html
       - name: deploy it to github repo
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
